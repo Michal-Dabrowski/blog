@@ -1,0 +1,32 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Choose files to compare</div>
+    <div class="panel-body">
+        <form action="" method="post" name="compare_files" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+
+            <div class="form-group">
+                {{ form.file_1(class="btn btn-default btn-file") }}
+                {% for error in form.file_1.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.file_2(class="btn btn-default btn-file") }}
+                {% for error in form.file_2.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <input type="submit" class="btn btn-default" value="Compare!">
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

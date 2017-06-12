@@ -1,0 +1,87 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="box-body no-padding">
+                  <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
+                    <div class="btn-group">
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
+                    </div><!-- /.btn-group -->
+                    <a href="{{ url_for('threads', nickname=g.user.nickname) }}" class="btn btn-default btn-sm" role="button"><i class="glyphicon glyphicon-refresh"></i></a>
+                    <div class="pull-right">
+                      1-50/200
+                      <div class="btn-group">
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                      </div><!-- /.btn-group -->
+                    </div><!-- /.pull-right -->
+                  </div>
+                  <hr>
+                    <div class="table-responsive mailbox-messages">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+
+{% for message in messages %}
+<tr>
+    <td><input type="checkbox"></td>
+    <td class="col-md-2">{% if message.sender_id == receiver.id %}<a href="{{url_for('user', nickname=receiver.nickname)}}">{{receiver.nickname}}{% else %}<a href="{{url_for('user', nickname=sender.nickname)}}">{{sender.nickname}}{% endif %}</a></td>
+    <td class="col-md-4">{% if message.sender_id == g.user.id %}Ja: {{ message.body }}{% else %}{{ message.body }}{% endif %}</a></td>
+    <td class="mailbox-attachment"></td>
+    <td class="mailbox-date">{{ message.timestamp }}</td>
+</tr>
+{% endfor %}
+                            </tbody>
+                        </table><!-- /.table -->
+                    </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+
+<div class="panel panel-default">
+    <div class="panel-heading">Send message to: {{ sender.nickname }}</div>
+    <div class="panel-body">
+        <form action="" method="post" name="post">
+            {{form.hidden_tag()}}
+            <div class="form-group {% if form.message.errors %}has-error{% endif %}">
+                {{ form.message(class="form-control", placeholder="Message...") }}
+            </div>
+            <input type="submit" class="btn btn-default" value="Send message">
+        </form>
+    </div>
+</div>
+
+
+                <hr>
+                <div class="box-footer no-padding">
+                  <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
+                    <div class="btn-group">
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
+                    </div><!-- /.btn-group -->
+                    <a href="{{ url_for('threads', nickname=g.user.nickname) }}" class="btn btn-default btn-sm" role="button"><i class="glyphicon glyphicon-refresh"></i></a>
+                    <div class="pull-right">
+                      1-50/200
+                      <div class="btn-group">
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                      </div><!-- /.btn-group -->
+                    </div><!-- /.pull-right -->
+                  </div>
+                </div>
+              </div><!-- /. box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+	</div>
+</div>
+
+
+
+{% endblock %}

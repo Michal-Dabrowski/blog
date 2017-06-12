@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="text-center">
+    <h1>Hi, {{ user.nickname }}!</h1>
+</div>
+
+<hr>
+  <div class="panel panel-default">
+  <div class="panel-body">
+    <form action="" method="post" name="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group {% if form.post.errors %}has-error{% endif %}">
+            {{ form.post(class="form-control", placeholder="Say something...") }}
+        </div>
+        {% for error in form.post.errors %}
+        <div class="alert alert-danger" role="alert">{{ error }}</div>
+        {% endfor %}
+        <input type="submit" class="btn btn-default" value="Post!">
+        </form>
+      </div>
+      </div>
+<hr>
+        <p>
+        {% for post in posts.items %}
+        {% include 'post.html' %}
+        {% endfor %}
+        </p>
+<hr>
+<div class="text-center">
+<div class="btn-group">
+{% if posts.has_prev %}<a class="btn btn-primary" href="{{ url_for('index', page=posts.prev_num) }}" role="button">Newer posts</a>
+        {% else %}<a class="btn btn-primary" role="button" disabled>Newer posts</a>{% endif %}
+{% if posts.has_next %}<a class="btn btn-primary" href="{{ url_for('index', page=posts.next_num) }}" role="button">Older posts</a>
+        {% else %}<a class="btn btn-primary" role="button" disabled>Older posts</a>{% endif %}
+</div>
+</div>
+{% endblock %}

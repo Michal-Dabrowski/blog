@@ -1,0 +1,20 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Send message to: {{ nickname }}</div>
+    <div class="panel-body">
+        <form action="" method="post" name="post">
+            {{form.hidden_tag()}}
+        <div class="form-group {% if form.message.errors %}has-error{% endif %}">
+            {{ form.message(class="form-control", placeholder="Message...") }}
+        </div>
+            <input type="submit" class="btn btn-default" value="Send message">
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

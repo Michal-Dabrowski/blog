@@ -1,0 +1,65 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="box-body no-padding">
+                  <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
+                    <div class="btn-group">
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
+                    </div><!-- /.btn-group -->
+                    <a href="{{ url_for('threads', nickname=g.user.nickname) }}" class="btn btn-default btn-sm" role="button"><i class="glyphicon glyphicon-refresh"></i></a>
+                    <div class="pull-right">
+                      1-50/200
+                      <div class="btn-group">
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                      </div><!-- /.btn-group -->
+                    </div><!-- /.pull-right -->
+                  </div>
+                  <hr>
+                    <div class="table-responsive mailbox-messages">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+
+{% for message in messages %}
+{% include 'thread.html' %}
+{% endfor %}
+
+                            </tbody>
+                        </table><!-- /.table -->
+                    </div><!-- /.mail-box-messages -->
+                    </div><!-- /.box-body -->
+                <hr>
+                <div class="box-footer no-padding">
+                  <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="glyphicon glyphicon-unchecked"></i></button>
+                    <div class="btn-group">
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                      <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-share-alt"></i></button>
+                    </div><!-- /.btn-group -->
+                    <a href="{{ url_for('threads', nickname=g.user.nickname) }}" class="btn btn-default btn-sm" role="button"><i class="glyphicon glyphicon-refresh"></i></a>
+                    <div class="pull-right">
+                      1-50/200
+                      <div class="btn-group">
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                      </div><!-- /.btn-group -->
+                    </div><!-- /.pull-right -->
+                  </div>
+                </div>
+              </div><!-- /. box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+	</div>
+</div>
+
+{% endblock %}

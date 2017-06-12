@@ -1,0 +1,7 @@
+<tr>
+    <td><input type="checkbox"></td>
+    <td class="col-md-2">{% for user in message.participants(g.user) %}<a href="{{url_for('user', nickname=user.nickname)}}">{{user.nickname}} {% endfor %}</a></td>
+    <td class="col-md-4">{% for user in message.participants(g.user) %}<a href="{{url_for('messages', nickname=user.nickname)}}">{% endfor %}{% if message.sender_id == g.user.id %}Ja: {{ message.body }}{% else %}{{ message.body }}{% endif %}</a></td>
+    <td class="mailbox-attachment"></td>
+    <td class="mailbox-date">{{ message.timestamp }}</td>
+</tr>

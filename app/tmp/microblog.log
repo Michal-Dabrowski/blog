@@ -1,0 +1,171 @@
+2017-01-06 18:35:12,660 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-06 18:35:25,517 ERROR: Exception on /edit [POST] [in C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py:1587]
+Traceback (most recent call last):
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask_login.py", line 792, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\views.py", line 74, in edit
+    if form.validate_on_submit():
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask_wtf\form.py", line 161, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\forms.py", line 34, in validate
+    user = User.query.filter_by(nickname=self.nickname.data).first()
+NameError: name 'User' is not defined
+2017-01-06 18:36:31,123 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-08 17:40:11,945 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-08 17:40:51,332 ERROR: Exception on /register [POST] [in C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py:1587]
+Traceback (most recent call last):
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
+    context)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\default.py", line 462, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.email
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\flask\app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\views.py", line 45, in register
+    register_user(form.login.data, form.password.data, form.email.data)
+  File "C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\views.py", line 102, in register_user
+    db.session.commit()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\session.py", line 874, in commit
+    self.transaction.commit()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\session.py", line 461, in commit
+    self._prepare_impl()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\session.py", line 2136, in flush
+    self._flush(objects)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 60, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\session.py", line 2218, in _flush
+    flush_context.execute()
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 386, in execute
+    rec.execute(self)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 545, in execute
+    uow
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 176, in save_obj
+    mapper, table, insert)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 824, in _emit_insert_statements
+    execute(statement, params)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\sql\elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\base.py", line 1189, in _execute_context
+    context)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\base.py", line 1393, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\util\compat.py", line 202, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\util\compat.py", line 185, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
+    context)
+  File "C:\Users\Majkel\my_blog_env\lib\site-packages\sqlalchemy\engine\default.py", line 462, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.email [SQL: 'INSERT INTO user (nickname, password, email, about_me, last_seen) VALUES (?, ?, ?, ?, ?)'] [parameters: ('test', 'dddd', 'test@test.pl', None, None)]
+2017-01-08 17:41:09,706 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-08 17:41:10,445 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:03:08,036 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:03:27,888 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:50:23,503 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:50:28,200 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:51:53,019 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:51:55,398 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:53:05,834 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:53:07,880 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:58:26,913 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:58:29,078 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:59:49,473 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 14:59:51,970 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:03:13,283 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:03:15,845 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:10:13,303 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:10:33,387 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:10:36,707 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:12:50,694 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:12:53,405 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:13:32,779 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-10 15:13:35,138 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-12 13:38:00,086 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-12 13:44:05,464 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-12 13:44:09,527 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-12 14:00:28,374 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:22:05,480 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:22:53,001 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:29:36,106 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:34:50,182 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:35:05,153 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:39:01,543 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:39:46,816 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:53:19,726 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:53:46,134 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-19 12:54:38,264 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-24 14:18:44,517 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-24 14:19:41,744 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-24 14:20:24,642 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-29 19:30:33,354 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-29 19:30:52,119 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-01-29 19:31:17,860 INFO: microblog startup [in C:\Users\Majkel\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-03 13:53:42,649 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-03 13:55:59,513 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-07 14:17:06,391 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-07 14:27:29,506 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-07 14:39:45,618 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 12:30:16,917 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 12:33:01,830 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 12:34:32,379 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 12:34:40,386 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 12:37:34,232 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 13:25:34,284 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 13:34:37,911 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 15:40:27,543 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 15:40:43,555 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 15:42:44,451 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 15:44:25,895 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 15:45:31,428 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-09 15:46:10,287 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-10 13:06:10,611 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-10 13:20:32,575 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-10 13:24:14,394 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-10 13:25:47,210 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-10 13:27:59,788 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-10 13:28:33,898 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-10 13:30:25,430 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-15 12:57:07,509 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-15 13:00:54,586 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-15 14:04:14,755 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-24 15:23:05,125 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
+2017-02-24 15:23:52,432 INFO: microblog startup [in C:\Users\Michael\Dropbox\PyCharm projects\my_blog\app\__init__.py:34]
